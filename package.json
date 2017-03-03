@@ -1,0 +1,28 @@
+{
+  "name": "AFK",
+  "version": "0.1.0",
+  "description": "The missing screensaver shortcut for macOS",
+  "author": "Jamie Straw <me@jamiestraw.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slashjs/afk.git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "standard",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "dependencies": {
+    "applescript": "^1.0.0",
+    "auto-launch": "^5.0.1",
+    "electron-config": "^0.2.1",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-packager": "^8.5.2",
+    "standard": "^8.6.0"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="title-bar">AFK Preferences</div>
+
+        <div id="container">
+            <div class="field">
+                <input type="checkbox" id="autolaunch">
+                <label for="autolaunch">Launch at login</label>
+            </div>
+
+            <div class="field">
+                <input type="checkbox" id="invert-clicks">
+                <label for="invert-clicks">Invert left & right click functionality</label>
+                <span class="tip">Default: Left click (Show Menu) Right click (Start AFK)</span>
+            </div>
+
+            <div class="field-container">
+                <div class="field">
+                    <label for="mode">Mode:</label>
+                    <select id="mode">
+                        <option value="screensaver">Screensaver</option>
+                        <option value="sleep">Sleep</option>
+                        <option value="lock">Lock</option>
+                    </select>
+                </div>
+                <div class="field" id="delay-field">
+                    <label for="delay">Delay: (ms)</label>
+                    <input type="text" placeholder="500" id="delay">
+                </div>
+            </div>
+
+            <div class="field-container">
+                <div class="field">
+                    <label for="global-hotkey">Global hotkey:</label>
+                    <input type="text" placeholder="Cmd+Shift+`" id="global-hotkey">
+                </div>
+                <div class="field" style="width:65px;">
+                    <a id="help-button" href="https://github.com/electron/electron/blob/master/docs/api/accelerator.md#available-modifiers">Help</a>
+                </div>
+            </div>
+        </div>
+        <script src="renderer.js"></script>
+    </body>
+</html>
