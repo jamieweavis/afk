@@ -14,8 +14,8 @@ let aboutWindow = null
 app.dock.hide()
 app.on('ready', () => {
   tray = new Tray(`${__dirname}/app/iconTemplate.png`)
-  tray.on('click', () => { onTrayClick() })
-  tray.on('right-click', () => { onTrayRightClick() })
+  tray.on('click', onTrayClick)
+  tray.on('right-click', onTrayRightClick)
 
   globalShortcut.register(config.get('globalHotkey'), onActivate)
   ipcMain.on('toggleAutoLaunch', setAutoLaunch)
