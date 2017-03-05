@@ -28,9 +28,9 @@ function createTrayMenu () {
     {
       label: 'Mode',
       submenu: Menu.buildFromTemplate([
-        { label: 'Screensaver', type: 'radio', checked: config.get('mode') === 'screensaver', click: onModeChange },
-        { label: 'Sleep', type: 'radio', checked: config.get('mode') === 'sleep', click: onModeChange },
-        { label: 'Lock', type: 'radio', checked: config.get('mode') === 'lock', click: onModeChange }
+        { label: 'Screensaver', value: 'screensaver', type: 'radio', checked: config.get('mode') === 'screensaver', click: onModeChange },
+        { label: 'Sleep', value: 'sleep', type: 'radio', checked: config.get('mode') === 'sleep', click: onModeChange },
+        { label: 'Lock', value: 'lock', type: 'radio', checked: config.get('mode') === 'lock', click: onModeChange }
       ])
     },
     { label: 'Preferences', accelerator: 'Cmd+,', click: createPreferencesWindow },
@@ -99,7 +99,7 @@ function setAutoLaunch (event, value) {
 }
 
 function onModeChange (radio) {
-  config.set('mode', radio.label.toLowerCase())
+  config.set('mode', radio.value)
   if (preferencesWindow) preferencesWindow.reload()
 }
 
