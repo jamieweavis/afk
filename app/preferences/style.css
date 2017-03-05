@@ -36,7 +36,7 @@ body {
     margin-left: 10px;
 }
 
-input[type=text], select {
+input[type=text], input[type=number], select {
     width: 100%;
     box-sizing: border-box;
     margin-top: 5px;
@@ -48,7 +48,7 @@ input[type=text], select {
     -webkit-appearance: none;
     transition: .2s;
 }
-input[type=text]:focus, select:focus {
+input[type=text]:focus, input[type=number]:focus select:focus {
     border: 3px solid #29ab87;
 }
 
