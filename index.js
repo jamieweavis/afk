@@ -104,41 +104,16 @@ function onModeChange (radio) {
 }
 
 function onActivate () {
-  switch (config.get('mode')) {
-    case 'screensaver': return startScreenSaver()
-    case 'sleep': return startSleep()
-    case 'lock': return startLock()
+  let mode = config.get('mode')
+  tray.setHighlightMode('always')
+
+  if (mode === 'screensaver') {
+    setTimeout(() => {
+      applescript.execFile('app/applescript/screensaver.applescript')
+      tray.setHighlightMode('selection')
+    }, config.get('delay'))
+  } else {
+    applescript.execFile(`app/applescript/${mode}.applescript`)
+    setTimeout(() => { tray.setHighlightMode('selection') }, 250)
   }
-}
-
-function startScreenSaver () {
-  let delay = config.get('delay')
-  let script = `
-    tell application "System Events" 
-      start current screen saver
-    end tell
-  `
-  tray.setHighlightMode('always')
-  setTimeout(() => {
-    applescript.execString(script)
-    tray.setHighlightMode('selection')
-  }, delay)
-}
-
-function startSleep () {
-  tray.setHighlightMode('always')
-
-  let script = `tell application "Finder" to sleep`
-  applescript.execString(script)
-
-  setTimeout(() => { tray.setHighlightMode('selection') }, 250)
-}
-
-function startLock () {
-  tray.setHighlightMode('always')
-
-  let script = `do shell script "/System/Library/CoreServices/Menu\\\\ Extras/User.menu/Contents/Resources/CGSession -suspend"`
-  applescript.execString(script)
-
-  setTimeout(() => { tray.setHighlightMode('selection') }, 250)
 }
