@@ -6,7 +6,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/slashjs/afk.git"
+    "url": "git+https://github.com/jamiestraw/afk.git"
   },
   "scripts": {
     "start": "electron .",

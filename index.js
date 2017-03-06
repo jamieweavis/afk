@@ -36,7 +36,7 @@ function createTrayMenu () {
     { label: 'Preferences', accelerator: 'Cmd+,', click: createPreferencesWindow },
     { type: 'separator' },
     { label: `About ${app.getName()}`, click: createAboutWindow },
-    { label: 'Feedback && Support...', click: () => { shell.openExternal('https://github.com/slashjs/afk/issues') } },
+    { label: 'Feedback && Support...', click: () => { shell.openExternal('https://github.com/jamiestraw/afk/issues') } },
     { type: 'separator' },
     { label: `Quit ${app.getName()}`, accelerator: 'Cmd+Q', click: () => { app.quit() } }
   ])
