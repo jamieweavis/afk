@@ -53,7 +53,7 @@ function createPreferencesWindow () {
     maximizable: false,
     show: false
   })
-  preferencesWindow.loadURL(`file://${__dirname}/app/preferences/index.html`)
+  preferencesWindow.loadURL(`file://${__dirname}/app/preferences.html`)
   preferencesWindow.once('ready-to-show', () => {
     preferencesWindow.show()
     app.dock.show()
@@ -70,12 +70,12 @@ function createAboutWindow () {
     title: `About ${app.getName()}`,
     titleBarStyle: 'hidden-inset',
     width: 350,
-    height: 230,
+    height: 220,
     resizable: false,
     maximizable: false,
     show: false
   })
-  aboutWindow.loadURL(`file://${__dirname}/app/about/index.html`)
+  aboutWindow.loadURL(`file://${__dirname}/app/about.html`)
   aboutWindow.once('ready-to-show', () => {
     aboutWindow.show()
     app.dock.show()
