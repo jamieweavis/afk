@@ -105,15 +105,16 @@ function onModeChange (radio) {
 
 function onActivate () {
   let mode = config.get('mode')
+  let unpackedPath = __dirname.replace('app.asar', 'app.asar.unpacked')
   tray.setHighlightMode('always')
 
   if (mode === 'screensaver') {
     setTimeout(() => {
-      applescript.execFile('app/applescript/screensaver.applescript')
+      applescript.execFile(`${unpackedPath}/app/applescript/screensaver.applescript`)
       tray.setHighlightMode('selection')
     }, config.get('delay'))
   } else {
-    applescript.execFile(`app/applescript/${mode}.applescript`)
+    applescript.execFile(`${unpackedPath}/app/applescript/${mode}.applescript`)
     setTimeout(() => { tray.setHighlightMode('selection') }, 250)
   }
 }
