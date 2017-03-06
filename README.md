@@ -32,10 +32,11 @@ AFK was created because there is no built-in way to trigger the screensaver on m
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device
 2. Install the required dependencies: `npm install`
-3. Make some changes! For some inspiration check out existing [issues](https://github.com/slashjs/afk/issues)
-3. Run the app: `npm start`
-4. Run the code linter: `npm test`
-5. Submit a [pull request](https://help.github.com/articles/about-pull-requests/)!
+3. Start file watchers: `gulp`
+4. Make some changes! For some inspiration check out existing [issues](https://github.com/slashjs/afk/issues)
+5. Run the app: `npm start`
+6. Run the code linter: `npm test`
+7. Submit a [pull request](https://help.github.com/articles/about-pull-requests/)!
 
 ## Build
 
