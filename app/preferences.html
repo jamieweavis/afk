@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles/preferences.css">
     </head>
     <body>
         <div id="title-bar">AFK Preferences</div>
@@ -16,7 +16,7 @@
             <div class="field">
                 <input type="checkbox" id="invert-clicks">
                 <label for="invert-clicks">Invert left & right click functionality</label>
-                <span class="tip">Default: Left click (Show Menu) Right click (Start AFK)</span>
+                <span class="description">Default: Left click (Show Menu) Right click (Start AFK)</span>
             </div>
 
             <div class="field-container">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="field" id="delay-field">
                     <label for="delay">Delay: (ms)</label>
-                    <input type="number" placeholder="500" id="delay">
+                    <input type="number"  id="delay" min="0" max="2000" step="10" placeholder="500">
                 </div>
             </div>
 
@@ -44,6 +44,6 @@
                 </div>
             </div>
         </div>
-        <script src="renderer.js"></script>
+        <script src="scripts/preferences.js"></script>
     </body>
 </html>
