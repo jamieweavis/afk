@@ -32,7 +32,7 @@ AFK was created because there is no built-in way to trigger the screensaver on m
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device
 2. Install the required dependencies: `npm install`
-3. Start file watchers: `gulp`
+3. Compile & watch the sass: `gulp sass && gulp sass:watch`
 4. Make some changes! For some inspiration check out existing [issues](https://github.com/jamiestraw/afk/issues)
 5. Run the app: `npm start`
 6. Run the code linter: `npm test`
