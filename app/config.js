@@ -1,4 +1,8 @@
-module.exports = {
+'use strict'
+
+const Config = require('electron-config')
+
+module.exports = new Config({
   defaults: {
     mode: 'screensaver',
     autoLaunch: false,
@@ -6,4 +10,4 @@ module.exports = {
     globalHotkey: 'Control+Shift+a',
     delay: 500
   }
-}
+})
