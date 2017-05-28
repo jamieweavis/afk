@@ -3,11 +3,11 @@
 const config = require('./app/config')
 const applescript = require('applescript')
 const AutoLaunch = require('auto-launch')
-const autoLaunch = new AutoLaunch({ name: app.getName(), path: `/Applications/${app.getName()}.app` })
 
 const electron = require('electron')
-const {app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain} = electron
+const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = electron
 
+const autoLaunch = new AutoLaunch({ name: app.getName(), path: `/Applications/${app.getName()}.app` })
 let tray = null
 let preferencesWindow = null
 let aboutWindow = null
