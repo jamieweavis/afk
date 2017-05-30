@@ -30,4 +30,4 @@ $('#delay').val(config.get('delay'))
 $('#global-hotkey').val(config.get('globalHotkey'))
   .change((event) => { config.set('globalHotkey', event.target.value) })
 
-if (config.get('mode') !== 'screensaver') $('#delay-field').hide()
+if (config.get('mode') !== 'Screensaver') $('#delay-field').hide()
