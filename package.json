@@ -4,12 +4,16 @@
   "description": "The missing screensaver shortcut for macOS",
   "author": "Jamie Straw <me@jamiestraw.com>",
   "license": "ISC",
-  "build": {
-    "asarUnpack": "app/applescript/*.applescript"
-  },
+  "homepage": "https://github.com/jamiestraw/afk",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jamiestraw/afk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamiestraw/afk/issues"
+  },
+  "build": {
+    "asarUnpack": "app/applescript/*.applescript"
   },
   "scripts": {
     "start": "electron .",
