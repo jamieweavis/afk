@@ -9,6 +9,10 @@
 
 **[Download the latest release](https://github.com/jamiestraw/afk/releases)** (macOS only)
 
+## Screenshots
+
+<img src="https://github.com/jamiestraw/afk/raw/master/screenshots/menubar.png" width="295"><img src="https://github.com/jamiestraw/afk/raw/master/screenshots/preferences.png" width="425">
+
 ## About
 
 AFK *(away from keyboard)* is a simple menubar application which adds the ability to trigger the screensaver, sleep or lock your mac via a keyboard shortcut *or* right-clicking the application in the menubar.
