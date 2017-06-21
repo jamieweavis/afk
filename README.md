@@ -29,3 +29,7 @@ AFK was created because there is no built-in way to trigger the screensaver on m
 	* Screensaver
 	* Sleep
 	* Lock
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
