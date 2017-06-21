@@ -11,7 +11,7 @@
 
 ## Screenshots
 
-<img src="https://github.com/jamiestraw/afk/raw/master/screenshots/menubar.png" width="295"><img src="https://github.com/jamiestraw/afk/raw/master/screenshots/preferences.png" width="425">
+<img src="https://github.com/jamiestraw/afk/raw/master/screenshots/menubar.png" width="425"><img src="https://github.com/jamiestraw/afk/raw/master/screenshots/preferences.png" width="425">
 
 ## About
 
