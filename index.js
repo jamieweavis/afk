@@ -1,7 +1,7 @@
 'use strict'
 
 const pjson = require('./package.json')
-const config = require('./app/config')
+const store = require('./app/store')
 const applescript = require('applescript')
 const AutoLaunch = require('auto-launch')
 
@@ -19,7 +19,7 @@ app.on('ready', () => {
   let aboutWindow = null
 
   function createTrayMenu () {
-    let cfg = config.store
+    let cfg = store.store
     let menuTemplate = [
       { label: `Start ${pjson.name}`, accelerator: cfg.globalHotkey, click: onActivate },
       {
@@ -96,17 +96,17 @@ app.on('ready', () => {
   }
 
   function onModeChange (radio) {
-    config.set('mode', radio.label)
+    store.set('mode', radio.label)
     if (preferencesWindow) preferencesWindow.reload()
   }
 
   function onActivate () {
-    let mode = config.get('mode')
+    let mode = store.get('mode')
     let unpackedPath = __dirname.replace('app.asar', 'app.asar.unpacked')
     tray.setHighlightMode('always')
 
     if (mode === 'screensaver') {
-      let delay = config.get('delay')
+      let delay = store.get('delay')
       setTimeout(() => {
         applescript.execFile(`${unpackedPath}/app/applescript/screensaver.applescript`)
         tray.setHighlightMode('selection')
@@ -120,10 +120,10 @@ app.on('ready', () => {
   app.dock.hide()
   app.on('window-all-closed', () => {})
 
-  tray.on('click', () => { config.get('invertClicks') ? onActivate() : tray.popUpContextMenu(createTrayMenu()) })
-  tray.on('right-click', () => { config.get('invertClicks') ? tray.popUpContextMenu(createTrayMenu()) : onActivate() })
+  tray.on('click', () => { store.get('invertClicks') ? onActivate() : tray.popUpContextMenu(createTrayMenu()) })
+  tray.on('right-click', () => { store.get('invertClicks') ? tray.popUpContextMenu(createTrayMenu()) : onActivate() })
 
-  globalShortcut.register(config.get('globalHotkey'), onActivate)
+  globalShortcut.register(store.get('globalHotkey'), onActivate)
 
   ipcMain.on('toggleAutoLaunch', (event, checked) => { checked ? afkAutoLauncher.enable() : afkAutoLauncher.disable() })
 })
