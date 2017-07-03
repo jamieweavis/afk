@@ -119,6 +119,7 @@ app.on('ready', () => {
 
   app.dock.hide()
   app.on('window-all-closed', () => {})
+  app.on('activate', createPreferencesWindow)
 
   tray.on('click', () => { store.get('invertClicks') ? onActivate() : tray.popUpContextMenu(createTrayMenu()) })
   tray.on('right-click', () => { store.get('invertClicks') ? tray.popUpContextMenu(createTrayMenu()) : onActivate() })
