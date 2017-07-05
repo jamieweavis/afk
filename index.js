@@ -2,18 +2,15 @@
 
 const pjson = require('./package.json')
 const store = require('./app/store')
-const applescript = require('applescript')
-const AutoLaunch = require('auto-launch')
+const autolaunch = require('./app/autolaunch')
 
 const electron = require('electron')
+const applescript = require('applescript')
+
 const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = electron
 
 app.on('ready', () => {
   const tray = new Tray(`${__dirname}/app/iconTemplate.png`)
-  const afkAutoLauncher = new AutoLaunch({
-    name: app.getName(),
-    path: `/Applications/${pjson.name}.app`
-  })
 
   let preferencesWindow = null
   let aboutWindow = null
@@ -126,5 +123,5 @@ app.on('ready', () => {
 
   globalShortcut.register(store.get('globalHotkey'), onActivate)
 
-  ipcMain.on('toggleAutoLaunch', (event, checked) => { checked ? afkAutoLauncher.enable() : afkAutoLauncher.disable() })
+  ipcMain.on('toggleAutoLaunch', (event, checked) => { checked ? autolaunch.enable() : autolaunch.disable() })
 })
