@@ -22,7 +22,6 @@ AFK was created because there is no built-in way to trigger the screensaver on m
 ## 🚀 Features
 
 * Launch at login
-* Invert click/right-click menubar functionality
 * Customisable global keyboard shortcut
 * Activate from keyboard shortcut *or* right-clicking the application in the menubar
 * Three different modes:

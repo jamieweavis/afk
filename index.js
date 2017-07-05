@@ -54,7 +54,7 @@ app.on('ready', () => {
       title: `${app.getName()} Preferences`,
       titleBarStyle: 'hidden-inset',
       width: 350,
-      height: 260,
+      height: 214,
       resizable: false,
       maximizable: false,
       show: false
@@ -118,8 +118,8 @@ app.on('ready', () => {
   app.on('window-all-closed', () => {})
   app.on('activate', createPreferencesWindow)
 
-  tray.on('click', () => { store.get('invertClicks') ? onActivate() : tray.popUpContextMenu(createTrayMenu()) })
-  tray.on('right-click', () => { store.get('invertClicks') ? tray.popUpContextMenu(createTrayMenu()) : onActivate() })
+  tray.setContextMenu(createTrayMenu())
+  tray.on('right-click', onActivate)
 
   globalShortcut.register(store.get('globalHotkey'), onActivate)
 

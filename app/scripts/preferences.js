@@ -14,9 +14,6 @@ $('#autolaunch').prop('checked', store.get('autoLaunch'))
     ipcRenderer.send('toggleAutoLaunch', event.target.checked)
   })
 
-$('#invert-clicks').prop('checked', store.get('invertClicks'))
-  .change((event) => { store.set('invertClicks', event.target.checked) })
-
 $('#mode').val(store.get('mode'))
   .change((event) => {
     store.set('mode', event.target.value)

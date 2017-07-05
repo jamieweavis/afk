@@ -7,7 +7,6 @@ module.exports = new Store({
     mode: 'screensaver',
     hideMenuBarIcon: false,
     autoLaunch: false,
-    invertClicks: false,
     globalHotkey: 'Control+Shift+a',
     delay: 500
   }
