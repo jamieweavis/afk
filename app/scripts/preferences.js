@@ -17,13 +17,7 @@ $('#autolaunch').prop('checked', store.get('autoLaunch'))
 $('#mode').val(store.get('mode'))
   .change((event) => {
     store.set('mode', event.target.value)
-    event.target.value === 'screensaver' ? $('#delay-field').show() : $('#delay-field').hide()
   })
-
-$('#delay').val(store.get('delay'))
-  .change((event) => { store.set('delay', event.target.value) })
 
 $('#global-hotkey').val(store.get('globalHotkey'))
   .change((event) => { store.set('globalHotkey', event.target.value) })
-
-if (store.get('mode') !== 'Screensaver') $('#delay-field').hide()

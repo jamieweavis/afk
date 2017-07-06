@@ -98,20 +98,14 @@ app.on('ready', () => {
   }
 
   function onActivate () {
-    let mode = store.get('mode')
     let unpackedPath = __dirname.replace('app.asar', 'app.asar.unpacked')
-    tray.setHighlightMode('always')
+    let mode = store.get('mode')
 
-    if (mode === 'screensaver') {
-      let delay = store.get('delay')
-      setTimeout(() => {
-        applescript.execFile(`${unpackedPath}/app/applescript/screensaver.applescript`)
-        tray.setHighlightMode('selection')
-      }, delay)
-    } else {
+    tray.setHighlightMode('always')
+    setTimeout(() => {
       applescript.execFile(`${unpackedPath}/app/applescript/${mode}.applescript`)
-      setTimeout(() => { tray.setHighlightMode('selection') }, 250)
-    }
+      tray.setHighlightMode('selection')
+    }, 500)
   }
 
   app.dock.hide()
