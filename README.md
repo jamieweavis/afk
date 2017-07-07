@@ -15,15 +15,16 @@
 
 ## 🔍 About
 
-AFK *(away from keyboard)* is a simple menubar application which adds the ability to trigger the screensaver, sleep or lock your mac via a keyboard shortcut *or* right-clicking the application in the menubar.
+AFK *(away from keyboard)* is a simple menu bar application which adds the ability to trigger the screensaver, sleep or lock your mac via a keyboard shortcut *or* right-clicking the application in the menu bar.
 
 AFK was created because there is no built-in way to trigger the screensaver on macOS (excluding hot corners).
 
 ## 🚀 Features
 
 * Launch at login
+* Hide menu bar icon
 * Customisable global keyboard shortcut
-* Activate from keyboard shortcut *or* right-clicking the application in the menubar
+* Activate via keyboard shortcut *or* right-clicking the application in the menu bar
 * Three different modes:
 	* Screensaver
 	* Sleep
