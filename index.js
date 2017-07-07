@@ -23,17 +23,17 @@ app.on('ready', () => {
           label: 'Screensaver',
           type: 'radio',
           checked: store.get('mode') === 'Screensaver',
-          click: onModeChange
+          click: (radio) => { setMode(radio.label) }
         }, {
           label: 'Sleep',
           type: 'radio',
           checked: store.get('mode') === 'Sleep',
-          click: onModeChange
+          click: (radio) => { setMode(radio.label) }
         }, {
           label: 'Lock',
           type: 'radio',
           checked: store.get('mode') === 'Lock',
-          click: onModeChange
+          click: (radio) => { setMode(radio.label) }
         }]
       },
       { label: 'Preferences', accelerator: 'Cmd+,', click: createPreferencesWindow },
@@ -90,11 +90,6 @@ app.on('ready', () => {
     })
   }
 
-  function onModeChange (radio) {
-    store.set('mode', radio.label)
-    if (preferencesWindow) preferencesWindow.reload()
-  }
-
   function onActivate () {
     let unpackedPath = __dirname.replace('app.asar', 'app.asar.unpacked')
     let mode = store.get('mode')
@@ -112,12 +107,18 @@ app.on('ready', () => {
   }
 
   function setHideIcon (value) {
+    store.set('hideIcon', value)
     if (value) {
       tray.destroy()
     } else {
       tray = new Tray(`${__dirname}/app/iconTemplate.png`)
     }
-    store.set('hideIcon', value)
+  }
+
+  function setMode (mode, reloadPreferences) {
+    store.set('mode', mode)
+    tray.setContextMenu(createTrayMenu())
+    if (reloadPreferences && preferencesWindow) preferencesWindow.reload()
   }
 
   app.dock.hide()
@@ -132,4 +133,5 @@ app.on('ready', () => {
 
   ipcMain.on('setAutoLaunch', (event, checked) => { setAutoLaunch(checked) })
   ipcMain.on('setHideIcon', (event, checked) => { setHideIcon(checked) })
+  ipcMain.on('setMode', (event, mode) => { setMode(mode) })
 })
