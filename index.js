@@ -121,17 +121,24 @@ app.on('ready', () => {
     if (reloadPreferences && preferencesWindow) preferencesWindow.reload()
   }
 
-  app.dock.hide()
-  app.on('window-all-closed', () => {})
-  app.on('activate', createPreferencesWindow)
+  function setHotkey (hotkey) {
+    globalShortcut.unregister(store.get('hotkey'))
+    globalShortcut.register(hotkey, onActivate)
+    store.set('hotkey', hotkey)
+  }
+
+  globalShortcut.register(store.get('hotkey'), onActivate)
 
   tray.setContextMenu(createTrayMenu())
   tray.on('right-click', onActivate)
   if (store.get('hideIcon')) tray.destroy()
 
-  globalShortcut.register(store.get('hotkey'), onActivate)
+  app.dock.hide()
+  app.on('window-all-closed', () => {})
+  app.on('activate', createPreferencesWindow)
 
   ipcMain.on('setAutoLaunch', (event, checked) => { setAutoLaunch(checked) })
   ipcMain.on('setHideIcon', (event, checked) => { setHideIcon(checked) })
   ipcMain.on('setMode', (event, mode) => { setMode(mode) })
+  ipcMain.on('setHotkey', (event, hotkey) => { setHotkey(hotkey) })
 })

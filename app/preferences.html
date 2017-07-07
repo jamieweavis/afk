@@ -62,8 +62,8 @@
               .change((event) => { ipcRenderer.send('setMode', event.target.value, false) })
 
             $('#global-hotkey')
-              .val(store.get('globalHotkey'))
-              .change((event) => { store.set('globalHotkey', event.target.value) })
+              .val(store.get('hotkey'))
+              .change((event) => { ipcRenderer.send('setHotkey', event.target.value) })
         </script>
     </body>
 </html>
