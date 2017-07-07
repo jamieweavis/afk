@@ -4,7 +4,7 @@
   "description": "The missing screensaver shortcut for macOS",
   "author": "Jamie Straw <me@jamiestraw.com>",
   "license": "ISC",
-  "homepage": "https://github.com/jamiestraw/afk",
+  "homepage": "https://github.com/jamiestraw/afk#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jamiestraw/afk.git"

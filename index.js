@@ -11,7 +11,6 @@ const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = elect
 
 app.on('ready', () => {
   let tray = new Tray(`${__dirname}/app/iconTemplate.png`)
-  let aboutWindow = null
   let preferencesWindow = null
 
   function createTrayMenu () {
@@ -38,7 +37,7 @@ app.on('ready', () => {
       },
       { label: 'Preferences', accelerator: 'Cmd+,', click: createPreferencesWindow },
       { type: 'separator' },
-      { label: `About ${pjson.name}`, click: createAboutWindow },
+      { label: `About ${pjson.name}...`, click: () => { shell.openExternal(pjson.homepage) } },
       { label: 'Feedback && Support...', click: () => { shell.openExternal(pjson.bugs.url) } },
       { type: 'separator' },
       { label: `Quit ${pjson.name}`, accelerator: 'Cmd+Q', click: () => { app.quit() } }
@@ -64,28 +63,6 @@ app.on('ready', () => {
     })
     preferencesWindow.on('closed', () => {
       preferencesWindow = null
-      app.dock.hide()
-    })
-  }
-
-  function createAboutWindow () {
-    if (aboutWindow) return aboutWindow.focus()
-    aboutWindow = new BrowserWindow({
-      title: `About ${app.getName()}`,
-      titleBarStyle: 'hidden-inset',
-      width: 350,
-      height: 220,
-      resizable: false,
-      maximizable: false,
-      show: false
-    })
-    aboutWindow.loadURL(`file://${__dirname}/app/about.html`)
-    aboutWindow.once('ready-to-show', () => {
-      aboutWindow.show()
-      app.dock.show()
-    })
-    aboutWindow.on('closed', () => {
-      aboutWindow = null
       app.dock.hide()
     })
   }
