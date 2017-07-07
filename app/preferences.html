@@ -51,14 +51,11 @@
 
             $('#autolaunch')
               .prop('checked', store.get('autoLaunch'))
-              .change((event) => {
-                store.set('autoLaunch', event.target.checked)
-                ipcRenderer.send('toggleAutoLaunch', event.target.checked)
-              })
+              .change((event) => { ipcRenderer.send('setAutoLaunch', event.target.checked) })
 
             $('#hide-icon')
               .prop('checked', store.get('hideIcon'))
-              .change((event) => { ipcRenderer.send('hideIcon', event.target.checked) })
+              .change((event) => { ipcRenderer.send('setHideIcon', event.target.checked) })
 
             $('#mode')
               .val(store.get('mode'))

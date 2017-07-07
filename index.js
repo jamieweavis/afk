@@ -106,6 +106,11 @@ app.on('ready', () => {
     }, 500)
   }
 
+  function setAutoLaunch (value) {
+    store.set('autoLaunch', value)
+    value ? autolaunch.enable() : autolaunch.disable()
+  }
+
   function setHideIcon (value) {
     if (value) {
       tray.destroy()
@@ -125,6 +130,6 @@ app.on('ready', () => {
 
   globalShortcut.register(store.get('hotkey'), onActivate)
 
-  ipcMain.on('toggleAutoLaunch', (event, checked) => { checked ? autolaunch.enable() : autolaunch.disable() })
-  ipcMain.on('hideIcon', (event, checked) => { setHideIcon(checked) })
+  ipcMain.on('setAutoLaunch', (event, checked) => { setAutoLaunch(checked) })
+  ipcMain.on('setHideIcon', (event, checked) => { setHideIcon(checked) })
 })
