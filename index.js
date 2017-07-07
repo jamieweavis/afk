@@ -10,31 +10,29 @@ const applescript = require('applescript')
 const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = electron
 
 app.on('ready', () => {
-  const tray = new Tray(`${__dirname}/app/iconTemplate.png`)
-
-  let preferencesWindow = null
+  let tray = new Tray(`${__dirname}/app/iconTemplate.png`)
   let aboutWindow = null
+  let preferencesWindow = null
 
   function createTrayMenu () {
-    let cfg = store.store
     let menuTemplate = [
-      { label: `Start ${pjson.name}`, accelerator: cfg.globalHotkey, click: onActivate },
+      { label: `Start ${pjson.name}`, accelerator: store.get('hotkey'), click: onActivate },
       {
         label: 'Mode',
         submenu: [{
           label: 'Screensaver',
           type: 'radio',
-          checked: cfg.mode === 'Screensaver',
+          checked: store.get('mode') === 'Screensaver',
           click: onModeChange
         }, {
           label: 'Sleep',
           type: 'radio',
-          checked: cfg.mode === 'Sleep',
+          checked: store.get('mode') === 'Sleep',
           click: onModeChange
         }, {
           label: 'Lock',
           type: 'radio',
-          checked: cfg.mode === 'Lock',
+          checked: store.get('mode') === 'Lock',
           click: onModeChange
         }]
       },
@@ -101,11 +99,20 @@ app.on('ready', () => {
     let unpackedPath = __dirname.replace('app.asar', 'app.asar.unpacked')
     let mode = store.get('mode')
 
-    tray.setHighlightMode('always')
+    if (!tray.isDestroyed()) tray.setHighlightMode('always')
     setTimeout(() => {
       applescript.execFile(`${unpackedPath}/app/applescript/${mode}.applescript`)
-      tray.setHighlightMode('selection')
+      if (!tray.isDestroyed()) tray.setHighlightMode('selection')
     }, 500)
+  }
+
+  function setHideIcon (value) {
+    if (value) {
+      tray.destroy()
+    } else {
+      tray = new Tray(`${__dirname}/app/iconTemplate.png`)
+    }
+    store.set('hideIcon', value)
   }
 
   app.dock.hide()
@@ -114,8 +121,10 @@ app.on('ready', () => {
 
   tray.setContextMenu(createTrayMenu())
   tray.on('right-click', onActivate)
+  if (store.get('hideIcon')) tray.destroy()
 
-  globalShortcut.register(store.get('globalHotkey'), onActivate)
+  globalShortcut.register(store.get('hotkey'), onActivate)
 
   ipcMain.on('toggleAutoLaunch', (event, checked) => { checked ? autolaunch.enable() : autolaunch.disable() })
+  ipcMain.on('hideIcon', (event, checked) => { setHideIcon(checked) })
 })

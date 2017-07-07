@@ -8,9 +8,16 @@
         <div id="title-bar">AFK Preferences</div>
 
         <div id="container">
-            <div class="field">
-                <input type="checkbox" id="autolaunch">
-                <label for="autolaunch">Launch at login</label>
+            <div class="field-container">
+                <div class="field">
+                    <input type="checkbox" id="autolaunch">
+                    <label for="autolaunch">Launch at login</label>
+                </div>
+
+                <div class="field">
+                    <input type="checkbox" id="hide-icon">
+                    <label for="hide-icon">Hide menu bar icon</label>
+                </div>
             </div>
 
             <div class="field">
@@ -32,6 +39,34 @@
                 </div>
             </div>
         </div>
-        <script src="scripts/preferences.js"></script>
+        <script>
+            window.$ = window.jQuery = require('jquery')
+            const {ipcRenderer, shell} = require('electron')
+            const store = require('./store')
+
+            $(document).on('click', 'a[href^="http"]', (event) => {
+              event.preventDefault()
+              shell.openExternal(event.target.href)
+            })
+
+            $('#autolaunch')
+              .prop('checked', store.get('autoLaunch'))
+              .change((event) => {
+                store.set('autoLaunch', event.target.checked)
+                ipcRenderer.send('toggleAutoLaunch', event.target.checked)
+              })
+
+            $('#hide-icon')
+              .prop('checked', store.get('hideIcon'))
+              .change((event) => { ipcRenderer.send('hideIcon', event.target.checked) })
+
+            $('#mode')
+              .val(store.get('mode'))
+              .change((event) => { store.set('mode', event.target.value) })
+
+            $('#global-hotkey')
+              .val(store.get('globalHotkey'))
+              .change((event) => { store.set('globalHotkey', event.target.value) })
+        </script>
     </body>
 </html>
