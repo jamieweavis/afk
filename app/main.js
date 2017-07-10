@@ -94,6 +94,8 @@ app.on('ready', () => {
       tray.destroy()
     } else {
       tray = new Tray(`${__dirname}/iconTemplate.png`)
+      tray.setContextMenu(createTrayMenu())
+      tray.on('right-click', onActivate)
     }
   }
 
