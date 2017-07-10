@@ -49,15 +49,20 @@ app.on('ready', () => {
     if (preferencesWindow) return preferencesWindow.focus()
     preferencesWindow = new BrowserWindow({
       title: `${app.getName()} Preferences`,
-      titleBarStyle: 'hidden-inset',
-      width: 350,
-      height: 214,
+      titleBarStyle: 'hidden',
+      width: 325,
+      height: 178,
       resizable: false,
       maximizable: false,
       show: false
     })
     preferencesWindow.loadURL(`file://${__dirname}/app/preferences.html`)
     preferencesWindow.once('ready-to-show', () => {
+      let screen = electron.screen.getDisplayNearestPoint(electron.screen.getCursorScreenPoint())
+      preferencesWindow.setPosition(
+        Math.floor(screen.bounds.x + (screen.size.width / 2) - (preferencesWindow.getSize()[0] / 2)),
+        Math.floor(screen.bounds.y + (screen.size.height / 2) - (preferencesWindow.getSize()[1] / 2))
+      )
       preferencesWindow.show()
       app.dock.show()
     })

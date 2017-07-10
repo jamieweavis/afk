@@ -1,69 +1,140 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles/preferences.css">
-    </head>
-    <body>
-        <div id="title-bar">AFK Preferences</div>
-
-        <div id="container">
-            <div class="field-container">
-                <div class="field">
-                    <input type="checkbox" id="autolaunch">
-                    <label for="autolaunch">Launch at login</label>
-                </div>
-
-                <div class="field">
-                    <input type="checkbox" id="hide-icon">
-                    <label for="hide-icon">Hide menu bar icon</label>
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="mode">Mode:</label>
-                <select id="mode">
-                    <option value="Screensaver">Screensaver</option>
-                    <option value="Sleep">Sleep</option>
-                    <option value="Lock">Lock</option>
-                </select>
-            </div>
-
-            <div class="field-container">
-                <div class="field">
-                    <label for="global-hotkey">Global hotkey:</label>
-                    <input type="text" placeholder="Cmd+Shift+`" id="global-hotkey">
-                </div>
-                <div class="field" style="width:65px;">
-                    <a id="help-button" href="https://github.com/electron/electron/blob/master/docs/api/accelerator.md#available-modifiers">Help</a>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8">
+    <title>AFK Preferences</title>
+    <style>
+      :root {
+        --text-color: #f1f1f1;
+        --header-color: #2E3136;
+        --background-color: #36393E;
+        --accent-color-dark: #29ab87;
+        --accent-color-light: #2ec097;
+        --border-radius: 3px;
+      }
+      body {
+        margin: 0;
+        background: var(--background-color);
+        color: var(--text-color);
+        font: 13px -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: hidden;
+        -webkit-user-select: none;
+      }
+      header {
+        height: 22px;
+        background: var(--header-color);
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, .3);
+        text-align: center;
+        line-height: 22px;
+        -webkit-user-select: none;
+        -webkit-app-region: drag;
+      }
+      #container { padding: 10px; }
+      select, input[type='text'] {
+        flex-grow: 1;
+        background: var(--text-color);
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        padding: 5px;
+        font-size: 13px;
+        -webkit-appearance: none;
+        border-radius: var(--border-radius);
+        transition: .2s;
+      }
+      select:focus, input[type='text']:focus { box-shadow: 0 0 0 3px var(--accent-color-dark); }
+      input[type=checkbox] {
+        display: none;
+      }
+      input[type=checkbox] + *:before {
+        content: '\2713';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+        margin-right: 5px;
+        background-color: var(--text-color);
+        border-radius: var(--border-radius);
+      }
+      input[type=checkbox]:checked + *:before {
+        content: '\2713';
+        background: var(--accent-color-dark);
+      }
+      .input-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0 10px 0;
+      }
+      #help-button {
+        padding: 5px 8px;
+        background: var(--accent-color-dark);
+        color: var(--text-color);
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        margin-left: 10px;
+      }
+      #help-button:hover { background-color: var(--accent-color-light); }
+    </style>
+  </head>
+  <body>
+    <header>AFK Preferences</header>
+    <div id="container">
+      <div class="input-container">
+        <div class="input-group">
+          <input type="checkbox" id="autolaunch">
+          <label for="autolaunch">Launch AFK at login</label>
         </div>
-        <script>
-            window.$ = window.jQuery = require('jquery')
-            const {ipcRenderer, shell} = require('electron')
-            const store = require('./store')
 
-            $(document).on('click', 'a[href^="http"]', (event) => {
-              event.preventDefault()
-              shell.openExternal(event.target.href)
-            })
+        <div class="input-group">
+          <input type="checkbox" id="hide-icon">
+          <label for="hide-icon">Hide menu bar icon</label>
+        </div>
+      </div>
 
-            $('#autolaunch')
-              .prop('checked', store.get('autoLaunch'))
-              .change((event) => { ipcRenderer.send('setAutoLaunch', event.target.checked) })
+      <div class="input-group">
+        <label for="mode">Mode:</label>
+        <div class="input-container">
+          <select id="mode">
+            <option value="Screensaver">Screensaver</option>
+            <option value="Sleep">Sleep</option>
+            <option value="Lock">Lock</option>
+          </select>
+        </div>
+      </div>
 
-            $('#hide-icon')
-              .prop('checked', store.get('hideIcon'))
-              .change((event) => { ipcRenderer.send('setHideIcon', event.target.checked) })
+      <div class="input-group">
+        <label for="global-hotkey">Global Hotkey:</label>
+        <div class="input-container">
+          <input type="text" placeholder="e.g. Control+Shift+a" id="global-hotkey">
+          <a id="help-button" href="https://github.com/electron/electron/blob/master/docs/api/accelerator.md#available-modifiers">Help</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.$ = window.jQuery = require('jquery')
+      const {ipcRenderer, shell} = require('electron')
+      const store = require('./store')
 
-            $('#mode')
-              .val(store.get('mode'))
-              .change((event) => { ipcRenderer.send('setMode', event.target.value, false) })
+      $(document).on('click', 'a[href^="http"]', (event) => {
+        event.preventDefault()
+        shell.openExternal(event.target.href)
+      })
 
-            $('#global-hotkey')
-              .val(store.get('hotkey'))
-              .change((event) => { ipcRenderer.send('setHotkey', event.target.value) })
-        </script>
-    </body>
+      $('#autolaunch')
+        .prop('checked', store.get('autoLaunch'))
+        .change((event) => { ipcRenderer.send('setAutoLaunch', event.target.checked) })
+
+      $('#hide-icon')
+        .prop('checked', store.get('hideIcon'))
+        .change((event) => { ipcRenderer.send('setHideIcon', event.target.checked) })
+
+      $('#mode')
+        .val(store.get('mode'))
+        .change((event) => { ipcRenderer.send('setMode', event.target.value, false) })
+
+      $('#global-hotkey')
+        .val(store.get('hotkey'))
+        .change((event) => { ipcRenderer.send('setHotkey', event.target.value) })
+    </script>
+  </body>
 </html>
