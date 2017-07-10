@@ -1,8 +1,8 @@
 'use strict'
 
-const pjson = require('./package.json')
-const store = require('./app/store')
-const autolaunch = require('./app/autolaunch')
+const pjson = require('../package.json')
+const store = require('./store')
+const autolaunch = require('./autolaunch')
 
 const electron = require('electron')
 const applescript = require('applescript')
@@ -10,7 +10,7 @@ const applescript = require('applescript')
 const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = electron
 
 app.on('ready', () => {
-  let tray = new Tray(`${__dirname}/app/iconTemplate.png`)
+  let tray = new Tray(`${__dirname}/iconTemplate.png`)
   let preferencesWindow = null
 
   function createTrayMenu () {
@@ -56,7 +56,7 @@ app.on('ready', () => {
       maximizable: false,
       show: false
     })
-    preferencesWindow.loadURL(`file://${__dirname}/app/preferences.html`)
+    preferencesWindow.loadURL(`file://${__dirname}/preferences.html`)
     preferencesWindow.once('ready-to-show', () => {
       let screen = electron.screen.getDisplayNearestPoint(electron.screen.getCursorScreenPoint())
       preferencesWindow.setPosition(
@@ -78,7 +78,7 @@ app.on('ready', () => {
 
     if (!tray.isDestroyed()) tray.setHighlightMode('always')
     setTimeout(() => {
-      applescript.execFile(`${unpackedPath}/app/applescript/${mode}.applescript`)
+      applescript.execFile(`${unpackedPath}/applescript/${mode}.applescript`)
       if (!tray.isDestroyed()) tray.setHighlightMode('selection')
     }, 500)
   }
@@ -93,7 +93,7 @@ app.on('ready', () => {
     if (value) {
       tray.destroy()
     } else {
-      tray = new Tray(`${__dirname}/app/iconTemplate.png`)
+      tray = new Tray(`${__dirname}/iconTemplate.png`)
     }
   }
 
