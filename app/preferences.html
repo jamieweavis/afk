@@ -8,8 +8,8 @@
         --text-color: #f1f1f1;
         --header-color: #2E3136;
         --background-color: #36393E;
-        --accent-color-dark: #29ab87;
-        --accent-color-light: #2ec097;
+        --accent-color: #29ab87;
+        --invalid-color: #cf3862;
         --border-radius: 3px;
       }
       body {
@@ -42,7 +42,8 @@
         border-radius: var(--border-radius);
         transition: .2s;
       }
-      select:focus, input[type='text']:focus { box-shadow: 0 0 0 3px var(--accent-color-dark); }
+      select:focus, input[type='text']:focus { box-shadow: 0 0 0 3px var(--accent-color); }
+      input[type='text']:focus.invalid { box-shadow: 0 0 0 3px var(--invalid-color); }
       input[type=checkbox] {
         display: none;
       }
@@ -58,7 +59,7 @@
       }
       input[type=checkbox]:checked + *:before {
         content: '\2713';
-        background: var(--accent-color-dark);
+        background: var(--accent-color);
       }
       .input-container {
         display: flex;
@@ -67,13 +68,13 @@
       }
       #help-button {
         padding: 5px 8px;
-        background: var(--accent-color-dark);
+        background: var(--accent-color);
         color: var(--text-color);
         border-radius: var(--border-radius);
         text-decoration: none;
         margin-left: 10px;
       }
-      #help-button:hover { background-color: var(--accent-color-light); }
+      #help-button:hover { filter: brightness(110%); }
     </style>
   </head>
   <body>
@@ -114,6 +115,7 @@
       window.$ = window.jQuery = require('jquery')
       const {ipcRenderer, shell} = require('electron')
       const store = require('./store')
+      const isAccelerator = require('electron-is-accelerator')
 
       $(document).on('click', 'a[href^="http"]', (event) => {
         event.preventDefault()
@@ -134,7 +136,12 @@
 
       $('#global-hotkey')
         .val(store.get('hotkey'))
-        .change((event) => { ipcRenderer.send('setHotkey', event.target.value) })
+        .keyup((event) => {
+          let hotkey = event.target.value
+          let isValid = isAccelerator(hotkey)
+          $('#global-hotkey').toggleClass('invalid', !isValid)
+          if (isValid) ipcRenderer.send('setHotkey', hotkey)
+        })
     </script>
   </body>
 </html>
