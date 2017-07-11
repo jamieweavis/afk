@@ -7,6 +7,6 @@ module.exports = new Store({
     autoLaunch: false,
     hideIcon: false,
     mode: 'Screensaver',
-    hotkey: 'Control+Shift+a'
+    hotkey: 'Control+Shift+A'
   }
 })
