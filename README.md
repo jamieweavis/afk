@@ -21,11 +21,11 @@ AFK was created because there is no built-in way to trigger the screensaver on m
 
 ## 🚀 Features
 
-* Launch at login
+* Launch AFK at login
 * Hide menu bar icon
-* Customisable global keyboard shortcut
-* Activate via keyboard shortcut *or* right-clicking the application in the menu bar
-* Three different modes:
+* Configurable global hotkey
+* Trigger via hotkey *or* right-clicking AFK in the menu bar
+* Modes:
 	* Screensaver
 	* Sleep
 	* Lock
