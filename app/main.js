@@ -13,6 +13,19 @@ app.on('ready', () => {
   let tray = new Tray(`${__dirname}/iconTemplate.png`)
   let preferencesWindow = null
 
+  function createApplicationMenu () {
+    let menu = Menu.buildFromTemplate([{
+      label: pjson.name,
+      submenu: [
+        { label: `About ${pjson.name}...`, click: () => { shell.openExternal(pjson.homepage) } },
+        { type: 'separator' },
+        { label: 'Close Window', accelerator: 'Cmd+w', click: () => { preferencesWindow.close() } },
+        { label: `Quit ${pjson.name}`, accelerator: 'Cmd+q', click: app.quit }
+      ]
+    }])
+    Menu.setApplicationMenu(menu)
+  }
+
   function createTrayMenu () {
     let menuTemplate = [
       { label: `Start ${pjson.name}`, accelerator: store.get('hotkey'), click: onActivate },
@@ -48,7 +61,7 @@ app.on('ready', () => {
   function createPreferencesWindow () {
     if (preferencesWindow) return preferencesWindow.focus()
     preferencesWindow = new BrowserWindow({
-      title: `${app.getName()} Preferences`,
+      title: `${pjson.name} Preferences`,
       titleBarStyle: 'hidden',
       width: 325,
       height: 178,
@@ -111,6 +124,7 @@ app.on('ready', () => {
     store.set('hotkey', hotkey)
   }
 
+  createApplicationMenu()
   globalShortcut.register(store.get('hotkey'), onActivate)
 
   tray.setContextMenu(createTrayMenu())
