@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="icon.png" height="80">
+    <img src="icon@2x.png" height="64">
     <h3 align="center">AFK</h3>
     <p align="center">🖥 The missing screensaver shortcut for macOS<p>
     <p align="center"><img src="https://img.shields.io/github/downloads/jamiestraw/afk/total.svg" alt="Downloads"> <a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard Code Style"></a> <a href="https://github.com/jamiestraw/afk/releases"><img src="https://img.shields.io/github/release/jamiestraw/afk.svg" alt="Release Version"></a> <a href="https://raw.githubusercontent.com/jamiestraw/afk/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a></p>
