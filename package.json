@@ -1,26 +1,13 @@
 {
   "name": "AFK",
-  "version": "1.0.0",
-  "main": "app/main.js",
   "description": "The missing screensaver shortcut for macOS",
+  "version": "1.0.0",
   "author": "Jamie Straw <me@jamiestraw.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/jamiestraw/afk#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jamiestraw/afk.git"
-  },
   "bugs": {
     "url": "https://github.com/jamiestraw/afk/issues"
   },
   "build": {
     "asarUnpack": "app/applescript/*.applescript"
-  },
-  "scripts": {
-    "start": "electron app/main.js",
-    "test": "standard",
-    "pack": "build --dir",
-    "dist": "build"
   },
   "dependencies": {
     "applescript": "^1.0.0",
@@ -33,5 +20,30 @@
     "electron": "^1.4.15",
     "electron-builder": "^15.1.1",
     "standard": "^8.6.0"
+  },
+  "homepage": "https://github.com/jamiestraw/afk#readme",
+  "keywords": [
+    "afk",
+    "app",
+    "electron",
+    "hotkey",
+    "lock",
+    "macos",
+    "menubar",
+    "screensaver",
+    "shortcut",
+    "sleep"
+  ],
+  "license": "MIT",
+  "main": "app/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamiestraw/afk.git"
+  },
+  "scripts": {
+    "dist": "build",
+    "pack": "build --dir",
+    "start": "electron app/main.js",
+    "test": "standard"
   }
 }
