@@ -1,3 +1,9 @@
+## ⚠️ Deprecated
+
+This project is deprecated as of 25/09/17 since macOS High Sierra now ships with a configurable hotkey to trigger the Lock Screen. AFK is a horribly bloated app to perform such a simple task anyway and was made more for fun than anything else.
+
+---
+
 <p align="center">
     <img src="icon@2x.png" height="64">
     <h3 align="center">AFK</h3>
