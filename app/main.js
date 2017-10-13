@@ -114,7 +114,7 @@ app.on('ready', () => {
 
   function setMode (mode, reloadPreferences) {
     store.set('mode', mode)
-    tray.setContextMenu(createTrayMenu())
+    if (!tray.isDestroyed()) tray.setContextMenu(createTrayMenu())
     if (reloadPreferences && preferencesWindow) preferencesWindow.reload()
   }
 
