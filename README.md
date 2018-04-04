@@ -1,6 +1,6 @@
 ## ⚠️ Deprecated
 
-This project is deprecated as of 25/09/17 since macOS High Sierra now ships with a configurable hotkey to trigger the Lock Screen. AFK is a horribly bloated app to perform such a simple task anyway and was made more for fun than anything else.
+This project is deprecated as of 25/09/17 since macOS 10.13 (High Sierra) now ships with a configurable hotkey to trigger the Lock Screen. AFK is a horribly bloated app to perform such a simple task anyway and was made more for fun than anything else.
 
 ---
 
@@ -8,16 +8,16 @@ This project is deprecated as of 25/09/17 since macOS High Sierra now ships with
     <img src="icon@2x.png" height="64">
     <h3 align="center">AFK</h3>
     <p align="center">🖥 The missing screensaver shortcut for macOS<p>
-    <p align="center"><img src="https://img.shields.io/github/downloads/jamiestraw/afk/total.svg" alt="Downloads"> <a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard Code Style"></a> <a href="https://github.com/jamiestraw/afk/releases"><img src="https://img.shields.io/github/release/jamiestraw/afk.svg" alt="Release Version"></a> <a href="https://raw.githubusercontent.com/jamiestraw/afk/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a></p>
+    <p align="center"><img src="https://img.shields.io/github/downloads/jamieweavis/afk/total.svg" alt="Downloads"> <a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard Code Style"></a> <a href="https://github.com/jamieweavis/afk/releases"><img src="https://img.shields.io/github/release/jamieweavis/afk.svg" alt="Release Version"></a> <a href="https://raw.githubusercontent.com/jamieweavis/afk/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a></p>
 </p>
 
 ## 📦 Install
 
-**[Download the latest release](https://github.com/jamiestraw/afk/releases)** (macOS only)
+**[Download the latest release](https://github.com/jamieweavis/afk/releases)** (macOS only)
 
 ## 🖥 Screenshots
 
-<img src="https://github.com/jamiestraw/afk/raw/master/screenshots/menubar.png" width="380"><img src="https://github.com/jamiestraw/afk/raw/master/screenshots/preferences.png" width="380">
+<img src="https://github.com/jamieweavis/afk/raw/master/screenshots/menubar.png" width="380"><img src="https://github.com/jamieweavis/afk/raw/master/screenshots/preferences.png" width="380">
 
 ## 🔍 About
 

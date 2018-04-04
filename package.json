@@ -2,9 +2,9 @@
   "name": "AFK",
   "description": "The missing screensaver shortcut for macOS",
   "version": "1.2.0",
-  "author": "Jamie Straw <me@jamiestraw.com>",
+  "author": "Jamie Weavis <jamie.weavis@gmail.com>",
   "bugs": {
-    "url": "https://github.com/jamiestraw/afk/issues"
+    "url": "https://github.com/jamieweavis/afk/issues"
   },
   "build": {
     "asarUnpack": "app/applescript/*.applescript"
@@ -21,7 +21,7 @@
     "electron-builder": "^19.37.1",
     "standard": "^10.0.3"
   },
-  "homepage": "https://github.com/jamiestraw/afk#readme",
+  "homepage": "https://github.com/jamieweavis/afk#readme",
   "keywords": [
     "afk",
     "app",
@@ -38,7 +38,7 @@
   "main": "app/main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamiestraw/afk.git"
+    "url": "git+https://github.com/jamieweavis/afk.git"
   },
   "scripts": {
     "dist": "build",
