@@ -7,7 +7,7 @@ This project is deprecated as of 25/09/17 since macOS 10.13 (High Sierra) now sh
 <p align="center">
     <img src="icon@2x.png" height="64">
     <h3 align="center">AFK</h3>
-    <p align="center">🖥 The missing screensaver shortcut for macOS<p>
+    <p align="center">💤 The missing screensaver shortcut for macOS<p>
     <p align="center"><img src="https://img.shields.io/github/downloads/jamieweavis/afk/total.svg" alt="Downloads"> <a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard Code Style"></a> <a href="https://github.com/jamieweavis/afk/releases"><img src="https://img.shields.io/github/release/jamieweavis/afk.svg" alt="Release Version"></a> <a href="https://raw.githubusercontent.com/jamieweavis/afk/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a></p>
 </p>
 
