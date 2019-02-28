@@ -1,4 +1,7 @@
 {
   "extends": ["airbnb-base", "prettier"],
-  "plugins": ["prettier"]
+  "plugins": ["prettier"],
+  "settings": {
+    "import/core-modules": [ "electron" ]
+  }
 }
