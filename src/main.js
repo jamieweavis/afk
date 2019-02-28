@@ -1,9 +1,9 @@
+const electron = require('electron')
+const applescript = require('applescript')
+
 const pjson = require('../package.json')
 const store = require('./store')
 const autolaunch = require('./autolaunch')
-
-const electron = require('electron')
-const applescript = require('applescript')
 
 const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = electron
 
