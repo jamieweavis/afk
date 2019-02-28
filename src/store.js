@@ -1,10 +1,10 @@
-const Store = require('electron-store')
+const Store = require('electron-store');
 
 module.exports = new Store({
   defaults: {
     autoLaunch: false,
     hideIcon: false,
     mode: 'screen-saver',
-    hotkey: 'Control+Shift+A'
-  }
-})
+    hotkey: 'Control+Shift+A',
+  },
+});
