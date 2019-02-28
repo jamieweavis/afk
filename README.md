@@ -1,7 +1,7 @@
 <p align="center">
     <img src="./screenshots/icon@2x.png" height="64">
     <h3 align="center">AFK</h3>
-    <p align="center">💤 The missing screensaver shortcut for macOS<p>
+    <p align="center">💤 The missing screen saver shortcut for macOS<p>
     <p align="center"><img src="https://img.shields.io/github/downloads/jamieweavis/afk/total.svg" alt="Downloads"> <a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard Code Style"></a> <a href="https://github.com/jamieweavis/afk/releases"><img src="https://img.shields.io/github/release/jamieweavis/afk.svg" alt="Release Version"></a> <a href="https://raw.githubusercontent.com/jamieweavis/afk/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a></p>
 </p>
 
@@ -11,9 +11,9 @@ Download the latest version of AFK from the **[GitHub releases](https://github.c
 
 ## About
 
-AFK *(away from keyboard)* is a simple menu bar application which adds the ability to trigger the screensaver, sleep, or lock your mac via a configurable keyboard shortcut *or* by right-clicking the application in the menu bar.
+AFK *(away from keyboard)* is a simple menu bar application which adds the ability to trigger the screen saver, sleep, or lock your mac via a configurable keyboard shortcut *or* by right-clicking the application in the menu bar.
 
-AFK was created because there is no built-in way to trigger the screensaver on macOS excluding hot corners.
+AFK was created because there is no built-in way to trigger the screen saver on macOS excluding hot corners.
 
 ## Features
 
@@ -22,7 +22,7 @@ AFK was created because there is no built-in way to trigger the screensaver on m
 * Configurable global hotkey
 * Trigger via hotkey *or* right-clicking menu bar icon
 * Modes:
-	* Screensaver
+	* Screen Saver
 	* Sleep
 	* Lock
 
