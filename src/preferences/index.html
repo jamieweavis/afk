@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AFK Preferences</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>AFK Preferences</header>
+    <div id="container">
+      <div class="input-container">
+        <div class="input-group">
+          <input type="checkbox" id="autolaunch" />
+          <label for="autolaunch">Launch AFK at login</label>
+        </div>
+
+        <div class="input-group">
+          <input type="checkbox" id="hide-icon" />
+          <label for="hide-icon">Hide menu bar icon</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="mode">Mode:</label>
+        <div class="input-container">
+          <select id="mode">
+            <option value="screen-saver">Screen Saver</option>
+            <option value="sleep">Sleep</option>
+            <option value="lock">Lock</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="global-hotkey">Global Hotkey:</label>
+        <div class="input-container">
+          <input
+            type="text"
+            placeholder="e.g. Control+Shift+A (title-case)"
+            id="global-hotkey"
+          />
+          <a
+            id="help-button"
+            href="https://github.com/electron/electron/blob/master/docs/api/accelerator.md#available-modifiers"
+            >Help</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

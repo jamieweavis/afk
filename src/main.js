@@ -126,9 +126,7 @@ app.on('ready', () => {
       maximizable: false,
       show: false,
     });
-    preferencesWindow.loadURL(
-      `file://${__dirname}/preferences/preferences.html`,
-    );
+    preferencesWindow.loadURL(`file://${__dirname}/preferences/index.html`);
     preferencesWindow.once('ready-to-show', () => {
       const screen = electron.screen.getDisplayNearestPoint(
         electron.screen.getCursorScreenPoint(),
@@ -169,9 +167,9 @@ app.on('ready', () => {
   function setAutoLaunch(isEnabled) {
     store.set('autoLaunch', isEnabled);
     if (isEnabled) {
-      autolaunch.enable()
+      autolaunch.enable();
     } else {
-      autolaunch.disable()
+      autolaunch.disable();
     }
   }
 
