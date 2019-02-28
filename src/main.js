@@ -64,7 +64,7 @@ app.on('ready', () => {
             type: 'radio',
             checked: store.get('mode') === 'screen-saver',
             click: () => {
-              setMode('screen-saver');
+              setMode('screen-saver', true);
             },
           },
           {
@@ -72,7 +72,7 @@ app.on('ready', () => {
             type: 'radio',
             checked: store.get('mode') === 'sleep',
             click: () => {
-              setMode('sleep');
+              setMode('sleep', true);
             },
           },
           {
@@ -80,7 +80,7 @@ app.on('ready', () => {
             type: 'radio',
             checked: store.get('mode') === 'lock',
             click: () => {
-              setMode('lock');
+              setMode('lock', true);
             },
           },
         ],
@@ -215,7 +215,7 @@ app.on('ready', () => {
     setHideIcon(checked);
   });
   ipcMain.on('setMode', (event, mode) => {
-    setMode(mode);
+    setMode(mode, false);
   });
   ipcMain.on('setHotkey', (event, hotkey) => {
     setHotkey(hotkey);
