@@ -152,6 +152,7 @@ app.on('ready', () => {
       preferencesWindow = null;
       app.dock.hide();
     });
+    return preferencesWindow;
   }
 
   function onActivate() {
