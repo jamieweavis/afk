@@ -1,5 +1,3 @@
-'use strict'
-
 const AutoLaunch = require('auto-launch')
 const pjson = require('../package.json')
 

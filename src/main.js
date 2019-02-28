@@ -1,5 +1,3 @@
-'use strict'
-
 const pjson = require('../package.json')
 const store = require('./store')
 const autolaunch = require('./autolaunch')
