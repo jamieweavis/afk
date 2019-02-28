@@ -67,7 +67,7 @@ app.on('ready', () => {
       maximizable: false,
       show: false
     })
-    preferencesWindow.loadURL(`file://${__dirname}/preferences.html`)
+    preferencesWindow.loadURL(`file://${__dirname}/preferences/preferences.html`)
     preferencesWindow.once('ready-to-show', () => {
       let screen = electron.screen.getDisplayNearestPoint(electron.screen.getCursorScreenPoint())
       preferencesWindow.setPosition(

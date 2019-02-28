@@ -115,7 +115,7 @@
     <script>
       window.$ = window.jQuery = require('jquery')
       const {ipcRenderer, shell} = require('electron')
-      const store = require('./store')
+      const store = require('../store')
       const isAccelerator = require('electron-is-accelerator')
 
       $(document).on('click', 'a[href^="http"]', (event) => {
