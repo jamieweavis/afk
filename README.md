@@ -7,7 +7,7 @@
 
 ## 📦 Install
 
-**[Download the latest release](https://github.com/jamieweavis/afk/releases)** (macOS only)
+Download the latest version of AFK from the **[GitHub releases](https://github.com/jamieweavis/afk/releases)** page. (macOS only)
 
 ## 🖥 Screenshots
 
