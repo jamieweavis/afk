@@ -8,7 +8,7 @@ const applescript = require('applescript')
 const { app, globalShortcut, Tray, Menu, BrowserWindow, shell, ipcMain } = electron
 
 app.on('ready', () => {
-  let tray = new Tray(`${__dirname}/iconTemplate.png`)
+  let tray = new Tray(`${__dirname}/icon/iconTemplate.png`)
   let preferencesWindow = null
 
   function createApplicationMenu () {
@@ -104,7 +104,7 @@ app.on('ready', () => {
     if (value) {
       tray.destroy()
     } else {
-      tray = new Tray(`${__dirname}/iconTemplate.png`)
+      tray = new Tray(`${__dirname}/icon/iconTemplate.png`)
       tray.setContextMenu(createTrayMenu())
       tray.on('right-click', onActivate)
     }
