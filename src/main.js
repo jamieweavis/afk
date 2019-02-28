@@ -30,20 +30,20 @@ app.on('ready', () => {
       {
         label: 'Mode',
         submenu: [{
-          label: 'Screensaver',
+          label: 'Screen Saver',
           type: 'radio',
-          checked: store.get('mode') === 'Screensaver',
-          click: (radio) => { setMode(radio.label) }
+          checked: store.get('mode') === 'screen-saver',
+          click: () => { setMode('screen-saver') }
         }, {
           label: 'Sleep',
           type: 'radio',
-          checked: store.get('mode') === 'Sleep',
-          click: (radio) => { setMode(radio.label) }
+          checked: store.get('mode') === 'sleep',
+          click: (radio) => { setMode('sleep') }
         }, {
           label: 'Lock',
           type: 'radio',
-          checked: store.get('mode') === 'Lock',
-          click: (radio) => { setMode(radio.label) }
+          checked: store.get('mode') === 'lock',
+          click: (radio) => { setMode('lock') }
         }]
       },
       { label: 'Preferences', accelerator: 'Cmd+,', click: createPreferencesWindow },
