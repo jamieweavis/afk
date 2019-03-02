@@ -27,9 +27,9 @@ AFK was created because there is no built-in way to trigger the screen saver on 
 * Configurable global hotkey
 * Trigger via hotkey *or* right-clicking menu bar icon
 * Modes:
-	* Screen Saver
-	* Sleep
-	* Lock
+  * Screen Saver
+  * Sleep
+  * Lock
 
 ## Screenshots
 
