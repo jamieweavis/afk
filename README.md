@@ -3,9 +3,9 @@
     <h3 align="center">AFK</h3>
     <p align="center">🏃‍♂️ The missing screen saver shortcut for macOS<p>
     <p align="center">
-      <img src="https://img.shields.io/github/downloads/jamieweavis/afk/total.svg" alt="Downloads">
+      <a href="https://github.com/jamieweavis/afk/releases"><img src="https://img.shields.io/github/downloads/jamieweavis/afk/total.svg" alt="GitHub Downloads"></a>
       <a href="https://github.com/jamieweavis/afk/releases"><img src="https://img.shields.io/github/release/jamieweavis/afk.svg" alt="Release Version"></a>
-      <a href="https://raw.githubusercontent.com/jamieweavis/afk/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a>
+      <a href="https://github.com/jamieweavis/afk/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Github License"></a>
       <a href="https://github.com/airbnb/javascript"><img src="https://img.shields.io/badge/codestyle-airbnb-fd5c63.svg" alt="airbnb Code Style"></a>
     </p>
 </p>
