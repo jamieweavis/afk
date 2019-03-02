@@ -1,7 +1,7 @@
 <p align="center">
     <img src="./screenshots/icon@2x.png" height="64">
     <h3 align="center">AFK</h3>
-    <p align="center">⌨️ The missing screen saver shortcut for macOS<p>
+    <p align="center">🏃‍♂️ The missing screen saver shortcut for macOS<p>
     <p align="center">
       <img src="https://img.shields.io/github/downloads/jamieweavis/afk/total.svg" alt="Downloads">
       <a href="https://github.com/jamieweavis/afk/releases"><img src="https://img.shields.io/github/release/jamieweavis/afk.svg" alt="Release Version"></a>
