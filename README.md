@@ -33,7 +33,13 @@ AFK was created because there is no built-in way to trigger the screen saver on 
 
 ## Screenshots
 
-<img src="https://github.com/jamieweavis/afk/raw/master/screenshots/menubar.png" width="380"><img src="https://github.com/jamieweavis/afk/raw/master/screenshots/preferences.png" width="380">
+### Menu Bar
+
+<img src="./screenshots/menu-bar.png" width="270">
+
+### Preferences Window
+
+<img src="./screenshots/preferences-window.png" width="400">
 
 ## License
 
