@@ -5,6 +5,6 @@ module.exports = new Store({
     autoLaunch: false,
     hideIcon: false,
     mode: 'screen-saver',
-    hotkey: 'Control+Shift+A',
+    hotkey: 'Control+Shift+L',
   },
 });
