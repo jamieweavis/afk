@@ -67,6 +67,7 @@
     "dist": "build",
     "lint": "eslint .",
     "pack": "build --dir",
-    "start": "electron src/main.js"
+    "start": "electron src/main.js",
+    "format": "prettier --write 'src/**/*.{js,html}'"
   }
 }
