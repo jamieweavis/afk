@@ -2,7 +2,7 @@
   "name": "AFK",
   "description": "The missing screen saver shortcut for macOS",
   "version": "1.3.1",
-  "author": "Jamie Weavis <jamie.weavis@gmail.com>",
+  "author": "Jamie Weavis",
   "bugs": {
     "url": "https://github.com/jamieweavis/afk/issues"
   },

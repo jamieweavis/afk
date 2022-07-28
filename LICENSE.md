@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright (c) `2019` `Jamie Weavis <jamie.weavis@gmail.com>`
+Copyright © `2019` Jamie Weavis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
